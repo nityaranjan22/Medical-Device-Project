@@ -3,15 +3,16 @@ from RPi import GPIO
 
 # Constants
 PWM_PIN = 18  # Connect the PWM signal to GPIO 18
-TIME_STEP = 0.1  # Time step in seconds for updating the duty cycle
+PWM_FREQ = 100  # PWM frequency in Hz
+TIME_STEP = 0.01  # Time step in seconds for updating the duty cycle
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PWM_PIN, GPIO.OUT)
 
 # Create a PWM object with a 100 Hz frequency
-pwm = GPIO.PWM(PWM_PIN)
-pwm.start(0)  # Start PWM with a 0% duty cycle
+pwm = GPIO.PWM(PWM_PIN, PWM_FREQ)
+pwm.start(100)  # Start PWM with a 0% duty cycle
 
 try:
     while True:
