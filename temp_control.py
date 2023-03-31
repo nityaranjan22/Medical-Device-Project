@@ -15,10 +15,10 @@ Ki = 0.01
 Kd = 0.1
 
 # Initialize I2C
-i2c = busio.I2C(board.SCL, board.SDA)
+i2c = board.I2C()
 
 # Initialize ADT7410
-adt7410 = adafruit_adt7410.ADT7410(i2c, address=0x49)
+temp_sensor = adafruit_adt7410.ADT7410(i2c, address=0x49)
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
@@ -36,7 +36,7 @@ def ramp_temperature(start_temperature, max_temperature, ramp_time, current_time
     return start_temperature + (max_temperature - start_temperature) * min(current_time / ramp_time, 1)
 
 start_time = time.time()
-start_temperature = adt7410.temperature
+start_temperature = temp_sensor.temperature
 
 try:
     while True:
@@ -44,7 +44,7 @@ try:
         target_temperature = ramp_temperature(start_temperature, MAX_TARGET_TEMPERATURE, RAMP_TIME, current_time)
 
         # Read temperature from ADT7410
-        temp = adt7410.temperature
+        temp = temp_sensor.temperature
 
         # Calculate PID controller values
         error = target_temperature - temp
