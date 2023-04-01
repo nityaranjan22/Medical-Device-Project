@@ -31,14 +31,9 @@ try:
         # Gradually increase the duty cycle from 0 to 100%
         for duty_cycle in range(101):
             pwm.ChangeDutyCycle(duty_cycle)
-            if(duty_cycle == 100):
-                break
-        
-        
-        temp = temp_sensor.temperature
-        time.sleep(0.5)
-
-        print(f'DUTY CYCLE:{duty_cycle}     TEMPERATURE:{temp}')
+            temp = temp_sensor.temperature
+            print(f'DUTY CYCLE:{duty_cycle}     TEMPERATURE:{temp}')
+            time.sleep(0.5)
 
         # # Gradually decrease the duty cycle from 100 to 0%
         # for duty_cycle in range(100, -1, -1):
