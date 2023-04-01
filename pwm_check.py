@@ -34,6 +34,8 @@ try:
             temp = temp_sensor.temperature
             print(f'DUTY CYCLE:{duty_cycle}     TEMPERATURE:{temp}')
             time.sleep(0.5)
+            if(duty_cycle == 100):
+                duty_cycle = 100
 
         # # Gradually decrease the duty cycle from 100 to 0%
         # for duty_cycle in range(100, -1, -1):

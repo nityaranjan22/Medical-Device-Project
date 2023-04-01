@@ -54,7 +54,7 @@ try:
 
         # Compute control output (duty cycle)
         control_output = Kp * error + Ki * integral + Kd * derivative
-        control_output = max(min(control_output, 1 00), 0)  # Clamp the control output between 0 and 100
+        control_output = max(min(control_output, 100), 0)  # Clamp the control output between 0 and 100
 
         # Update PWM duty cycle
         pwm.ChangeDutyCycle(control_output)
