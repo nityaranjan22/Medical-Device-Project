@@ -7,7 +7,7 @@ from RPi import GPIO
 # Constants
 PWM_PIN = 18  # Connect the PWM signal to GPIO 18
 MAX_TARGET_TEMPERATURE = 100.0  # Maximum target temperature in Celsius
-RAMP_TIME = 600  # Time in seconds for the target temperature to reach the maximum value
+RAMP_TIME = 60  # Time in seconds for the target temperature to reach the maximum value
 
 # PID controller constants
 Kp = 1.0
@@ -58,6 +58,10 @@ try:
 
         # Update PWM duty cycle
         pwm.ChangeDutyCycle(control_output)
+
+
+        print(f'Current time:{current_time:.02}     Target Temp:{target_temperature:.02}       Current Temperature:{temp:.02}   Control Output:{control_output}')
+
 
         # Wait for the next iteration
         time.sleep(time_step)
