@@ -54,13 +54,13 @@ try:
 
         # Compute control output (duty cycle)
         control_output = Kp * error + Ki * integral + Kd * derivative
-        control_output = max(min(control_output, 100), 0)  # Clamp the control output between 0 and 100
+        control_output = max(min(control_output, 1 00), 0)  # Clamp the control output between 0 and 100
 
         # Update PWM duty cycle
         pwm.ChangeDutyCycle(control_output)
 
 
-        print(f'Current time:{current_time:.02}     Target Temp:{target_temperature:.02}       Current Temperature:{temp:.02}   Control Output:{control_output}')
+        print(f'Current time:{current_time}     Target Temp:{target_temperature}       Current Temperature:{temp}   Control Output:{control_output}')
 
 
         # Wait for the next iteration
