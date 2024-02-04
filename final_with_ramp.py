@@ -11,6 +11,8 @@ MAX_TARGET_TEMPERATURE = 100.0  # Maximum target temperature in Celsius
 TEMP_STEP = 5.0  # Temperature step in degrees Celsius
 TEMP_TOLERANCE = 0.5  # Tolerance in degrees Celsius for considering the target temperature reached
 
+MOSPHET_PIN_1 = 4
+
 # PID controller constants
 Kp = 1.0
 Ki = 0.01

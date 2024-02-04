@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding= UTF-8
+Name= Accupuncture
+Exec= ~/connected_12button.py
+Icon= ~/acupuncture.png
+StartupNotify=true
+Terminal=true

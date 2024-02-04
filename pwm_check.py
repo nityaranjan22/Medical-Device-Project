@@ -4,9 +4,11 @@ import adafruit_adt7410
 from RPi import GPIO
 
 # Constants
-PWM_PIN = 18  # Connect the PWM signal to GPIO 18
+PWM_PIN = 21  # Connect the PWM signal to GPIO 18
 PWM_FREQ = 100  # PWM frequency in Hz
 TIME_STEP = 0.01  # Time step in seconds for updating the duty cycle
+
+
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
@@ -40,7 +42,7 @@ temp_sensor = adafruit_adt7410.ADT7410(i2c, address=0x49)
 #         #     pwm.ChangeDutyCycle(duty_cycle)
 #         #     time.sleep(TIME_STEP)
 
-try:
+try: 
     while True:
             pwm.ChangeDutyCycle(100)
             temp = temp_sensor.temperature
